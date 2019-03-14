@@ -50,7 +50,7 @@ Preferences 설정
    - Tomcat -> server.xml -> Connector 태그 port 속성 수정(사용자에 따라 틀림)
 
 - 주의사항 -
-Maven이 jar 파일을 받아오다가 손상된경우는 제대로 다시 받아올 수 없기때문에,
+Maven이 jar 파일을 받아오다가 손상된 경우는 제대로 다시 받아올 수 없기때문에,
 Repository 가서 해당 파일을 지우고 다시 받아 해결해야 한다. 그래서 'localRepository' 를 편한 폴더로 지정함
 
 - bin 폴더에서 localRepository 설정 -
