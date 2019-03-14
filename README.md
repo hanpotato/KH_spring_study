@@ -46,8 +46,8 @@ Preferences 설정
 - 이용방법 -
 1. 'maven.apache.org'에 우측상단 Download 클릭 -> 'apache-maven-3.6.0-bin.zip' 다운받아서 압축을 푼다.
 2. tomcat server 더블클릭 - serve modules without publishing 체크
-3. port 번호 9090 으로 되어있는지 확인 아니면 tomcat conf 에서 8080 에서 9090 으로 변경
-  (사용자에 따라 틀림)
+3. Ports에서 HTTP/1.1 설정이 '9090' 으로 되어있는지 확인 (서로 충돌안되게 값을 변경해 줘야 한다.
+   - Tomcat -> server.xml -> Connector 태그 port 속성 수정(사용자에 따라 틀림)
 
 - 주의사항 -
 Maven이 jar 파일을 받아오다가 손상된경우는 제대로 다시 받아올 수 없기때문에,
