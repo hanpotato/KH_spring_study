@@ -11,6 +11,12 @@
     + commons-dbcp. Version: 1.4
 <hr><br>
 
+
+## KH Spring ppt
+[0_Spring - 개요 & 구조.pdf](https://github.com/hanpotato/KH_spring_study/files/2964542/0_Spring.-.pdf)
+<hr><br>
+
+
 ## Eclipse 기본 설정(STS)
 <pre>
 Preferences 설정
@@ -58,6 +64,7 @@ Repository 가서 해당 파일을 지우고 다시 받아 해결해야 한다. 
 
 </pre>
 
+
 ## Spring 기타 설정
 <pre>
 git 설정
@@ -66,6 +73,7 @@ git 설정
   ' */target/* ' 등록 OK
 </pre>
 <hr><br>
+
 
 ## Project 새로 시작하기
 <pre>
