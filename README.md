@@ -11,7 +11,7 @@
     + commons-dbcp. Version: 1.4
 <hr><br>
 
-## Elipse 기본 설정(STS)
+## Eclipse 기본 설정(STS)
 <pre>
 Preferences 설정
 
@@ -58,7 +58,7 @@ Repository 가서 해당 파일을 지우고 다시 받아 해결해야 한다. 
 
 </pre>
 
-## spring 기타 설정
+## Spring 기타 설정
 <pre>
 git 설정
 설정 경로 : Window - Preferences - team - Ignored resources
@@ -67,7 +67,7 @@ git 설정
 </pre>
 <hr><br>
 
-## project 새로 시작하기
+## Project 새로 시작하기
 <pre>
 Spring legacy project
 -> Spring MVC project
