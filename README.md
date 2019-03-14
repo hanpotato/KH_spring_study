@@ -40,7 +40,7 @@ Preferences 설정
 #### 원격저장소에 있는 필요한 라이브러리 파일들을 자동으로 받아주는 기능
 <pre>
 *원격저장소(MavenRepository)
-  필요한 파일의 등록은 Maven 의 설정파일인 pom.xml 에 <dependency>를 등록해서 받아옴
+  필요한 파일의 등록은 Maven 의 설정파일인 pom.xml 에 'dependency'를 등록해서 받아옴
   - https://mvnrepository.com/ 에서 필요 파일 검색 후 maven 등록 형식으로 소스를 받을 수 있음.
 
 - 이용방법 -
