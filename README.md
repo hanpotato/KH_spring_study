@@ -82,6 +82,6 @@ Spring legacy project
 -> Spring MVC project
 -> package 에 3단계로 써줌
     ex) com.kh.spring
--> finish 누르면 다운받느라 걸림
+-> finish
 </pre>
 <hr><br>
