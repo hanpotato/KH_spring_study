@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dev">
+	<resultMap type="dev" id="devMap">
+		<result column="devlang" property="devLang" typeHandler="strArr"/>
+	</resultMap>
+		
+	<select id="selectList" resultMap="devMap">
+		SELECT * FROM DEV
+	</select>
+	
+	<insert id="insert" parameterType="dev">
+		INSERT INTO DEV VALUES(SEQ_DEV_NO.NEXTVAL,#{devName},#{devAge},#{devEmail},#{devGender},
+		<!-- 
+		<foreach collection="devLang" item="lang" separator="," open="'" close="'">
+		동적쿼리를 넣을때는 collection에 값을 그냥 넣어야 한다.
+			${lang}
+		</foreach>
+		-->
+		<!-- #{devLang, typeHandler = com.kh.spring.common.StringArrTypeHandler} -->
+		#{devLang, typeHandler = strArr}
+		
+		)
+	</insert>
+	
+	<select id="selectNo" resultType="dev">
+		SELECT * FROM DEV WHERE DEVNO = 1
+	</select>
+
+</mapper>

@@ -3,6 +3,31 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- 	
+	servlet-context.xml 서블릿의 개별 환경설정
+	root-context.xml spring 전체의 환경설정
+	서버 드라이버를 올릴때, 전체 환경설정으로 올리기 위해 root-context.xml 에다가 설정한다.
+	 -->
+	 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- ref는 참조 그렇기 때문에 주소값이 들어간다... 주소값은 객체~ 그렇기에 dataSource는 객체이다 -->
+		<property name="mapperLocations" value="classpath*:mapper/**/*.xml"/>
+		<!-- mapperLocations는 경로와 파일명이 들어와야 한다. -->
+		<!-- classpath* 는  src/main/resources를 의미한다. ':' 다음에 나오는 어떤 폴더도 가능하다 라는 의미이다 -->
+		<!-- ** 는 전체 경로를 의미한다. mybatis/** 는 mybatis 밑에 모든 폴더를 의미한다. -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="spring"/>
+		<property name="password" value="spring"/>
+	</bean>
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+	</bean>
+	
+	
 </beans>
