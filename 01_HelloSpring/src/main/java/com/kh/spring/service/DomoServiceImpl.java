@@ -37,4 +37,19 @@ public class DomoServiceImpl implements DomoService {
 		return dao.selectList();
 	}
 
+	@Override
+	public Dev selectOne(Dev dev) {
+		return dao.selectOne(dev);
+	}
+
+	@Override
+	public int update(Dev dev) {
+		return dao.update(dev);
+	}
+
+	@Override
+	public int delete(Dev dev) {
+		return dao.delete(dev);
+	}
+
 }

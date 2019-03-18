@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Dev {
 
+	private int devNo;
 	private String devName;
 	private int devAge;
 	private String devEmail;
@@ -14,6 +15,16 @@ public class Dev {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Dev(int devNo, String devName, int devAge, String devEmail, String devGender, String[] devLang) {
+		super();
+		this.devNo = devNo;
+		this.devName = devName;
+		this.devAge = devAge;
+		this.devEmail = devEmail;
+		this.devGender = devGender;
+		this.devLang = devLang;
+	}
+
 	public Dev(String devName, int devAge, String devEmail, String devGender, String[] devLang) {
 		super();
 		this.devName = devName;
@@ -21,6 +32,14 @@ public class Dev {
 		this.devEmail = devEmail;
 		this.devGender = devGender;
 		this.devLang = devLang;
+	}
+
+	public int getDevNo() {
+		return devNo;
+	}
+
+	public void setDevNo(int devNo) {
+		this.devNo = devNo;
 	}
 
 	public String getDevName() {
@@ -65,9 +84,8 @@ public class Dev {
 
 	@Override
 	public String toString() {
-		return "Dev [devName=" + devName + ", devAge=" + devAge + ", devEmail=" + devEmail + ", devGender=" + devGender
-				+ ", devLang=" + Arrays.toString(devLang) + "]";
+		return "Dev [devNo=" + devNo + ", devName=" + devName + ", devAge=" + devAge + ", devEmail=" + devEmail
+				+ ", devGender=" + devGender + ", devLang=" + Arrays.toString(devLang) + "]";
 	}
-	
 	
 }

@@ -26,5 +26,18 @@
 	<select id="selectNo" resultType="dev">
 		SELECT * FROM DEV WHERE DEVNO = 1
 	</select>
-
+	
+	<select id="selectOne" parameterType="dev" resultMap="devMap">
+		SELECT * FROM DEV WHERE DEVNO = #{devNo}
+	</select>
+	
+	<update id="update" parameterType="dev">
+		UPDATE DEV SET DEVNAME = #{devName}, DEVAGE = #{devAge}, DEVEMAIL = #{devEmail}, DEVGENDER = #{devGender},
+			DEVLANG = #{devLang, typeHandler = strArr}
+			WHERE DEVNO = #{devNo}
+	</update>
+	
+	<delete id="delete" parameterType="dev">
+		DELETE FROM DEV WHERE DEVNO = #{devNo}
+	</delete>
 </mapper>

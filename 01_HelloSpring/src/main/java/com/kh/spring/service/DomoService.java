@@ -12,4 +12,7 @@ public interface DomoService {
 	int insert(Dev dev);
 	Dev domo5();
 	List<Dev> selectList();
+	Dev selectOne(Dev dev);
+	int update(Dev dev);
+	int delete(Dev dev);
 }

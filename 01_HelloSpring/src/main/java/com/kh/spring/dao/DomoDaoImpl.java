@@ -36,4 +36,19 @@ public class DomoDaoImpl implements DomoDao {
 		return session.selectList("dev.selectList");
 	}
 
+	@Override
+	public Dev selectOne(Dev dev) {
+		return session.selectOne("dev.selectOne",dev);
+	}
+
+	@Override
+	public int update(Dev dev) {
+		return session.update("dev.update",dev);
+	}
+
+	@Override
+	public int delete(Dev dev) {
+		return session.delete("dev.delete",dev);
+	}
+
 }

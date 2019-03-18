@@ -8,7 +8,7 @@
       <jsp:param value="" name="pageTitle"/>
 </jsp:include>
 <style>
-   table#tbl-dev{   //demo--> dev로 수정
+   table#tbl-dev{
       margin:0 auto;
       width:50%;
    }

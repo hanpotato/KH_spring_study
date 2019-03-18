@@ -112,7 +112,6 @@ public class DomoController {
 	@RequestMapping("/domo/selectList.do")
 	public String selectList(Model model) {
 		List<Dev> list = service.selectList();
-		System.out.println(list);
 		model.addAttribute("list",list);
 		return "domo/domoList";
 	}
@@ -127,4 +126,22 @@ public class DomoController {
 	}
 	*/
 
+	@RequestMapping("/domo/domoUpdate.do")
+	public String selectOne(Dev dev, Model model) {
+		Dev result = service.selectOne(dev);
+		model.addAttribute("dev",result);
+		return "domo/domoUpdate";
+	}
+	
+	@RequestMapping("/domo/domoUpdateEnd.do")
+	public String update(Dev dev) {
+		int result = service.update(dev);
+		return "redirect:/domo/selectList.do";
+	}
+	
+	@RequestMapping("/domo/domoDel.do")
+	public String delete(Dev dev) {
+		int result = service.delete(dev);
+		return "redirect:/domo/selectList.do";
+	}
 }

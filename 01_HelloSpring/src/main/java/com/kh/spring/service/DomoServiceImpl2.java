@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.kh.spring.dao.DomoDao;
 
 /*@Service*/ //servlet-context.xml에 등록이 되면 어노테이션으로 선언한 걸 없애도 유지가 된다.
+/*
 public class DomoServiceImpl2 implements DomoService {
 
 	@Autowired
@@ -19,3 +20,4 @@ public class DomoServiceImpl2 implements DomoService {
 	}
 
 }
+*/

@@ -31,11 +31,21 @@
 				</c:forEach>
 			</td>
 			<td>
-				<button type="button" class="btn btn-out-line-light" onclick="">수정</button>
-				<button type="button" class="btn btn-out-line-light" onclick="">삭제</button>
+				<button type="button" class="btn btn-out-line-light" onclick="fn_domoUpdate(${d.devNo });">수정</button>
+				<button type="button" class="btn btn-out-line-light" onclick="fn_domoDel(${d.devNo });">삭제</button>
 			</td>
 		</tr>
 	</c:forEach>
-	
 </table>
+<script>
+	function fn_domoUpdate(index) {
+		location.href="${path }/domo/domoUpdate.do?devNo="+index;
+	}
+	function fn_domoDel(index) {
+		var delFlag = confirm("정말로 삭제 하시겠습니까?");
+		if(delFlag) {
+			location.href="${path }/domo/domoDel.do?devNo="+index;
+		}
+	}
+</script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
