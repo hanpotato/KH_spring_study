@@ -55,10 +55,12 @@
 								<a class="dropdown-item" href="${pageContext.request.contextPath }/domo/selectList.do">domo 리스트</a>
 							</div>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="${path }/memo/memo.do">메모</a>
+						</li>
 					</ul>
 					<c:if test="${loggedMember == null }">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal"
-							data-target="#loginModal">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#loginModal">
 							로그인
 						</button>
 						&nbsp;

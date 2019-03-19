@@ -97,7 +97,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.kh.spring">
-		<level value="debug" />
+		<level value="warn" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
