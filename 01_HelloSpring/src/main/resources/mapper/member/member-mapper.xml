@@ -15,4 +15,15 @@
 	<select id="selectOne" parameterType="member" resultMap="memberMap">
 		SELECT * FROM MEMBER WHERE USERID = #{userId}
 	</select>
+	
+	<update id="update" parameterType="member">
+		UPDATE MEMBER SET PASSWORD = #{password}, USERNAME = #{userName}, GENDER = #{gender},
+			AGE = #{age}, EMAIL = #{email}, PHONE = #{phone}, ADDRESS = #{address},
+			HOBBY = #{hobby, typeHandler = strArr}
+			WHERE USERID = #{userId}
+	</update>
+	
+	<delete id="delete" parameterType="member">
+		DELETE FROM MEMBER WHERE USERID = #{userId}
+	</delete>
 </mapper>

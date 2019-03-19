@@ -69,7 +69,8 @@
 					</c:if>
 					<c:if test="${loggedMember != null }">
 						<span>
-							<a href="#">${loggedMember.userName }</a>님 환영합니다.
+							<%-- <a href="${path }/member/memberUpdate.do">${loggedMember.userName }</a>님 환영합니다. --%>
+							<a href="${path }/member/memberUpdate.do?userId=${loggedMember.userId }">${loggedMember.userName }</a>님 환영합니다.
 						</span>
 						&nbsp;
 						<button class="btn btn-outline-success my-2 my-sm-0" type="button"

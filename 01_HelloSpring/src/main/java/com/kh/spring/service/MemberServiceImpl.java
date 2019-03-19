@@ -23,4 +23,14 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectOne(m);
 	}
 
+	@Override
+	public int update(Member m) {
+		return dao.update(m);
+	}
+
+	@Override
+	public int delete(Member m) {
+		return dao.delete(m);
+	}
+	
 }

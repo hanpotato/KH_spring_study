@@ -60,6 +60,7 @@
 		    <version>1.4</version>
 		</dependency>
 		
+		
 		<!-- 스프링시큐리티를 이용하여 Bcrypt암호화하기 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
@@ -79,8 +80,17 @@
 		    <artifactId>spring-security-config</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
-						
 		
+		
+		<!-- sqllog 남기기 -->
+		<!-- https://mvnrepository.com/artifact/org.lazyluke/log4jdbc-remix -->
+		<dependency>
+		    <groupId>org.lazyluke</groupId>
+		    <artifactId>log4jdbc-remix</artifactId>
+		    <version>0.2.7</version>
+		</dependency>
+	
+			
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

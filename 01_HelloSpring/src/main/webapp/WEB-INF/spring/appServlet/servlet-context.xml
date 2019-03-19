@@ -29,5 +29,27 @@
 		<beans:qualifier value="choice"/>
 	</beans:bean>
 	 -->
+
+	 
+<!-- 	
+	interceptor : 중간에 요청이 들어오는걸 가로채는 역할.
+	
+	filter와 다른 점 :
+		request에서 was에 오면 filter가 가로채는것..
+		was에서 spring으로 넘어가고 spring안에서 controller로 넘어가기 전에 interceptor가 가로챈다.
+	
+	interceptor의 처리 종류
+		preHandle : 전처리
+		postHandle : 후처리 요구된 메소드가 완료 되었을때
+		afterCompletion : 모든 것이 완료 되었을때 응답이 끝났을때
+-->	 
+	 
+	 
+	 <interceptors>
+	 	<interceptor>
+	 		<mapping path="/domo/*"/>
+	 		<beans:bean id="loggerInterceptor" class="com.kh.spring.common.LoggerInterceptor"/>
+	 	</interceptor>
+	 </interceptors>
 	
 </beans:beans>
