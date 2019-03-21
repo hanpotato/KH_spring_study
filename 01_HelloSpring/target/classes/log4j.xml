@@ -82,7 +82,7 @@
 	<!-- DB로그를 출력하기 위한 구문 -->
 	<appender name="sqlLogger" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="$-5p : %m%n"/>
+			<param name="ConversionPattern" value="%-5p : %m%n"/>
 		</layout>
 	</appender>
 	<logger name="jdbc.sqlonly" additivity="false">
