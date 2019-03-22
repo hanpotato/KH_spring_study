@@ -11,5 +11,31 @@
 			(select count(*) from attachment where A.boardno = boardno) as filecount
 			from board A order by boarddate desc
 	</select>
+	
+	<insert id="insertBoard" parameterType="board">
+		insert into board values(seq_boardno.nextval, #{boardTitle}, #{boardWriter}, #{boardContent}, default, default)
+		<selectKey keyProperty="boardNo" resultType="_int" order="AFTER">
+			select seq_boardno.currval from dual
+		</selectKey>
+	</insert>
+	
+	<insert id="insertAttachment" parameterType="attachment">
+		insert into attachment
+			values(seq_attachmentno.nextval, #{boardNo}, #{originalFileName}, #{renamedFileName}, default, default, default)
+			
+			<!-- 일부러 에러 내는 sql문 -->
+			<!-- 
+			insert into attachment(attachmentno, boardno, originalfilname, renamedfilename)
+				values(seq_attachmentno.nextval, #{boardNo}, #{originalFileName}, #{renamedFileName})
+				 -->
+	</insert>
+	
+	<select id="selectBoard" parameterType="_int" resultType="board">
+		select * from board where boardno=#{boardNo}
+	</select>
+	
+	<select id="selectAttachment" parameterType="_int" resultType="attachment">
+		select * from attachment where boardno=#{boardNo}
+	</select>
 
 </mapper>

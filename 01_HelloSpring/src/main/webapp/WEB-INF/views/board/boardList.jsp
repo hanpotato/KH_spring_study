@@ -35,12 +35,12 @@
  		<c:forEach items="${list }" var="b">
             <tr>
                 <td>${b.boardNo }</td>
-                <td>${b.boardTitle }</td>
+                <td><a href="${path }/board/boardView.do?boardNo=${b.boardNo}">${b.boardTitle }</a></td>
                 <td>${b.boardWriter }</td>
-                <td>${list.boardDate }</td>
-                <td b="center">
+                <td>${b.boardDate }</td>
+                <td align="center">
                     <c:if test="${b.fileCount>0}">
-                        <img alt="첨부파일" src="*데이터 file.png*"
+                        <img alt="첨부파일" src="file.png*"
                          width=16px>
                     </c:if>
                 </td>
