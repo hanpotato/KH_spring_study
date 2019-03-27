@@ -82,10 +82,11 @@ public class LoggerAspect {
 			if(o instanceof Member) {
 				m = (Member)o;
 			}
+			/*
 			if(m!=null && !"admin".equals(m.getUserId())) {
 				throw new Exception();
 			}
-			
+			*/
 		}
 		
 		logger.warn("before : " + sig.getDeclaringTypeName());

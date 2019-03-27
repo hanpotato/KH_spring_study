@@ -5,7 +5,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
+<jsp:include page="/WEB-INF/views/common/header.jsp">
+	<jsp:param value="회원등록" name="pageTitle" />
+</jsp:include>
+
 <style>
+
 	div#enroll-container {
 		width: 400px;
 		margin: 0 auto;
@@ -16,16 +21,58 @@
 	div#enroll-container select {
 		margin-bottom: 10px;
 	}
+	
+	/*중복아이디체크관련*/
+    div#userid-container{position:relative; padding:0px;}
+    div#userid-container span.guide {display:none;font-size: 12px;position:absolute; top:12px; right:10px;}
+    div#userid-container span.ok{color:green;}
+    div#userid-container span.error{color:red;}
+    
 </style>
-<jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="회원등록" name="pageTitle" />
-</jsp:include>
+<script>
+	$(function() {
+		$('#userId_').keyup(function() {
+			var userId = $('#userId_').val().trim();
+			if(userId.length<4) {
+				$('.guide').hide();
+				return;
+			}
 
+			$.ajax({
+				url:"${path}/member/checkId.do",
+				data:{"userId":$("#userId_").val()},
+				success:function(data) {
+					console.log(data);
+					console.log(typeof data);
+					console.log(data.isOk+" : "+typeof data.isOk);
+					console.log(decodeURIComponent(data.msg)+" : "+typeof data.msg);
+					console.log(data.su+" : "+typeof data.su);
+					
+					/* 
+					if(data.trim() == 'true') {
+						$(".guide.ok").show();
+						$(".guide.error").hide();
+					}
+					else {
+						$(".guide.ok").hide();
+						$(".guide.error").show();
+					}
+					 */
+				}
+			})
+		})
+	})
+</script>
 <section>
 	<div id="enroll-container">
 		<form name="memberEnrollFrm" action="${pageContext.request.contextPath}/member/memberEnrollEnd.do" method="post"
 			onsubmit="return validate();">
-			<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="userId" id="userId_" required>
+			<div id="userid-container">
+				<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="userId" id="userId_" required>
+				<span class="guide ok">이 아이디는 사용할 수 있습니다.</span>
+				<span class="guide error">이 아이디는 사용할 수 없습니다.</span>
+				<input type="hidden" name="checkId" id="checkId"/>
+			</div>
 			<input type="password" class="form-control" placeholder="비밀번호" name="password" id="password_" required>
 			<input type="password" class="form-control" placeholder="비밀번호확인" id="password2" required>
 			<input type="text" class="form-control" placeholder="이름" name="userName" id="userName" required> <input

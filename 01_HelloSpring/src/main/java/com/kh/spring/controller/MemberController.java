@@ -1,6 +1,10 @@
 package com.kh.spring.controller;
 
-import javax.management.RuntimeErrorException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /*import org.apache.log4j;*/
@@ -15,9 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.spring.model.vo.Member;
 import com.kh.spring.service.MemberService;
-import com.sun.xml.internal.fastinfoset.Encoder;
-
-import sun.text.normalizer.NormalizerBase.Mode;
 
 /*@SessionAttributes(value={"loggedMember"})*/
 @Controller
@@ -166,6 +167,22 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("common/msg");
 		mv.addObject("msg",msg);
+		return mv;
+	}
+	
+	@RequestMapping("/member/checkId.do")
+	public ModelAndView checkId(String userId, HttpServletResponse res) throws UnsupportedEncodingException, IOException {
+		
+		ModelAndView mv = new ModelAndView();
+		Member m = new Member();
+		m.setUserId(userId);
+		Member result = service.selectOne(m);
+		boolean isOk=result != null?false:true;
+		mv.addObject("isOk",isOk);
+		mv.addObject("msg",URLEncoder.encode("고마워요~감동!","UTF-8"));
+		mv.addObject("su",19);
+		mv.setViewName("jsonView");
+		/*res.getWriter().println(isOk);*/
 		return mv;
 	}
 	
